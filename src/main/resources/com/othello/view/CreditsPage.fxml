@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<!--
+    Sfondo: gestito dal CSS (main_menu.css) con "background-size: cover",
+    cosi' l'immagine 16:9 si adatta a qualsiasi finestra senza deformarsi.
+    Layout: logo in alto a destra, bottoni nella colonna destra (liberata
+    nello sfondo per la UI), rotella delle impostazioni in basso a destra.
+-->
+<BorderPane fx:id="root"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.othello.view.MainMenuController"
+            prefWidth="1280" prefHeight="720"
+            minWidth="960" minHeight="540"
+            styleClass="menu-root"
+            stylesheets="@main_menu.css">
+
+    <!-- TITOLO / LOGO -->
+    <top>
+        <HBox alignment="TOP_RIGHT">
+            <padding>
+                <Insets top="14" right="40" bottom="0" left="40"/>
+            </padding>
+            <ImageView fx:id="logo" fitWidth="770" preserveRatio="true" smooth="true">
+                <image>
+                    <Image url="@othello_title_transparent_3189x977.png"/>
+                </image>
+            </ImageView>
+        </HBox>
+    </top>
+
+        <top>
+        <HBox alignment="TOP_RIGHT">
+            <padding>
+                <Insets top="14" right="40" bottom="0" left="40"/>
+            </padding>
+                        <Button fx:id="backButton"
+        onAction="#onBackToMenu"
+        styleClass="back-button">
+    <graphic>
+        <SVGPath styleClass="arrow-icon"
+                 content="M20,8 L6,22 L20,36 L20,28 L36,28 L36,16 L20,16 Z"/>
+    </graphic>
+</Button>
+        </HBox>
+    </top>
+
+    <!-- MENU PRINCIPALE (colonna destra) -->
+    <right>
+        <VBox fx:id="menuBox"
+              alignment="CENTER"
+              spacing="14"
+              prefWidth="430"
+              BorderPane.alignment="CENTER_RIGHT">
+            <padding>
+                <Insets top="0" right="110" bottom="40" left="-320"/>
+            </padding>
+            <Label text = "Project Manager: Michele Zucco" styleClass="version-label2"/>
+            <Label text = "Nullafacente maggiore: Adami Emanuele" styleClass="version-label2"/>
+            <Label text = "Nullafacente sergente: Riccardo Zanetti" styleClass="version-label2"/>
+
+        </VBox>
+    </right>
+
+    <!-- BARRA IN BASSO: versione + rotella impostazioni -->
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="26">
+            <padding>
+                <Insets top="0" right="12" bottom="26" left="80"/>
+            </padding>
+            <Label text="Othello  ·  beta 1.0.0" styleClass="version-label"/>
+            <Button fx:id="settingsButton" onAction="#onSettings" styleClass="gear-button">
+                <graphic>
+                    <SVGPath styleClass="gear-icon" fillRule="EVEN_ODD"
+                             content="M37.8,23.0 L41.3,27.3 L39.4,31.9 L33.9,32.4 L32.4,33.9 L31.9,39.4 L27.3,41.3 L23.0,37.8 L21.0,37.8 L16.7,41.3 L12.1,39.4 L11.6,33.9 L10.1,32.4 L4.6,31.9 L2.7,27.3 L6.2,23.0 L6.2,21.0 L2.7,16.7 L4.6,12.1 L10.1,11.6 L11.6,10.1 L12.1,4.6 L16.7,2.7 L21.0,6.2 L23.0,6.2 L27.3,2.7 L31.9,4.6 L32.4,10.1 L33.9,11.6 L39.4,12.1 L41.3,16.7 L37.8,21.0 Z M29.6,22.0 A7.6,7.6 0 1 0 14.4,22.0 A7.6,7.6 0 1 0 29.6,22.0 Z"/>
+                </graphic>
+            </Button>
+        </HBox>
+    </bottom>
+</BorderPane>

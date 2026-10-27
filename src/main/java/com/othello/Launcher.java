@@ -1,10 +1,9 @@
 package com.othello;
 
-import com.othello.view.Frontend;
+import com.othello.view.MainApp;
 
 public class Launcher {
     public static void main(String[] args) {
-        // Avvia l'interfaccia grafica
-        Frontend.main(args);
+        MainApp.main(args);
     }
 }

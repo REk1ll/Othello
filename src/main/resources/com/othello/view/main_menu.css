@@ -1,0 +1,91 @@
+/* ===== Othello - main menu ===== */
+
+.menu-root {
+    /* Usa la versione 3840x2160 se vuoi la massima qualita' (piu' pesante) */
+    -fx-background-image: url("images/othello_menu.png");
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: #0b1426;
+
+    /* stesso font del titolo (GNU FreeSerif Bold) */
+    -fx-font-family: "FreeSerif";
+    -fx-font-weight: bold;
+    -fx-font-size: 32px;            /* il controller lo adatta all'altezza della finestra */
+}
+
+/* ---- Bottoni testuali ---- */
+.menu-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-border-color: transparent;
+    -fx-padding: 6 0 6 0;
+    -fx-alignment: CENTER;
+    -fx-cursor: hand;
+
+    -fx-font-family: "FreeSerif";
+    -fx-font-weight: bold;
+    -fx-font-size: 1.15em;
+    -fx-text-fill: #9eabc4;          /* grigio-azzurro a riposo */
+
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.85), 8, 0.35, 0, 2);
+}
+
+.menu-button:hover,
+.menu-button:armed {
+    -fx-text-fill: white;            /* si illumina di bianco */
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.95), 22, 0.35, 0, 0);
+}
+
+/* ---- Rotella impostazioni ---- */
+.gear-button {
+    -fx-background-color: transparent;
+    -fx-padding: 4;
+    -fx-cursor: hand;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.gear-icon {
+    -fx-fill: #9eabc4;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.85), 8, 0.35, 0, 2);
+}
+
+.gear-button:hover .gear-icon,
+.gear-button:armed .gear-icon {
+    -fx-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.95), 20, 0.35, 0, 0);
+}
+
+.version-label {
+    -fx-font-family: "FreeSerif";
+    -fx-font-weight: bold;
+    -fx-font-size: 0.55em;
+    -fx-text-fill: #6d7a93;
+}
+.version-label2 {
+    -fx-font-family: "FreeSerif";
+    -fx-font-weight: bold;
+    -fx-font-size: 0.85em;
+    -fx-text-fill: #33CCFF;
+}
+.back-button {
+    -fx-background-color: transparent;
+    -fx-padding: 4;
+    -fx-cursor: hand;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.arrow-icon {
+    -fx-fill: #9eabc4;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.85), 8, 0.35, 0, 2);
+}
+
+.back-button:hover .arrow-icon,
+.back-button:armed .arrow-icon {
+    -fx-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.95), 20, 0.35, 0, 0);
+}
