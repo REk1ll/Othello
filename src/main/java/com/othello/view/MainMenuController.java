@@ -61,8 +61,26 @@ public class MainMenuController {
     }
 
     @FXML
-    private void onPlay() {
-        // Avvia nuova partita
+    private void onPlay(ActionEvent event) {
+        try {
+            Parent pagina = FXMLLoader.load(
+                    getClass().getResource(
+                            "/com/othello/view/Play.fxml"
+                    )
+            );
+
+            Stage finestra = (Stage) ((javafx.scene.Node) event.getSource())
+                    .getScene()
+                    .getWindow();
+
+            finestra.setScene(new Scene(pagina));
+            finestra.setTitle("Play");
+            finestra.show();
+
+        } catch (IOException | NullPointerException e) {
+            e.printStackTrace();
+            System.err.println("Impossibile caricare Play.fxml");
+        }
     }
 
     @FXML
@@ -101,5 +119,18 @@ public class MainMenuController {
     @FXML
     private void onExit() {
         Platform.exit();
+    }
+
+    @FXML
+    private void NewGame(){
+
+    }
+    @FXML
+    private void LoadGame(){
+
+    }
+    @FXML
+    private void Skins(){
+
     }
 }

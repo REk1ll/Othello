@@ -10,12 +10,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.SVGPath?>
 
-<!--
-    Sfondo: gestito dal CSS (main_menu.css) con "background-size: cover",
-    cosi' l'immagine 16:9 si adatta a qualsiasi finestra senza deformarsi.
-    Layout: logo in alto a destra, bottoni nella colonna destra (liberata
-    nello sfondo per la UI), rotella delle impostazioni in basso a destra.
--->
 <BorderPane fx:id="root"
             xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
@@ -25,33 +19,30 @@
             styleClass="menu-root"
             stylesheets="@main_menu.css">
 
-    <!-- TITOLO / LOGO -->
+    <!-- UNICA SEZIONE TOP: Contiene sia il pulsante Indietro che il Logo -->
     <top>
-        <HBox alignment="TOP_RIGHT">
+        <HBox alignment="TOP_RIGHT" spacing="20">
             <padding>
                 <Insets top="14" right="40" bottom="0" left="40"/>
             </padding>
-            <ImageView fx:id="logo" fitWidth="770" preserveRatio="true" smooth="true">
-                <image>
-                    <Image url="@othello_title_transparent_3189x977.png"/>
-                </image>
-            </ImageView>
-        </HBox>
-    </top>
+            <children>
+                <!-- Pulsante indietro inserito correttamente a fianco o prima del logo -->
+                <Button fx:id="backButton"
+                        onAction="#onBackToMenu"
+                        styleClass="back-button">
+                    <graphic>
+                        <SVGPath styleClass="arrow-icon"
+                                 content="M20,8 L6,22 L20,36 L20,28 L36,28 L36,16 L20,16 Z"/>
+                    </graphic>
+                </Button>
 
-        <top>
-        <HBox alignment="TOP_RIGHT">
-            <padding>
-                <Insets top="14" right="40" bottom="0" left="40"/>
-            </padding>
-                        <Button fx:id="backButton"
-        onAction="#onBackToMenu"
-        styleClass="back-button">
-    <graphic>
-        <SVGPath styleClass="arrow-icon"
-                 content="M20,8 L6,22 L20,36 L20,28 L36,28 L36,16 L20,16 Z"/>
-    </graphic>
-</Button>
+                <!-- Il logo rimane intatto, così il Controller Java lo trova e non va in crash -->
+                <ImageView fx:id="logo" fitWidth="770" preserveRatio="true" smooth="true">
+                    <image>
+                        <Image url="@othello_title_transparent_3189x977.png"/>
+                    </image>
+                </ImageView>
+            </children>
         </HBox>
     </top>
 
@@ -65,14 +56,13 @@
             <padding>
                 <Insets top="0" right="110" bottom="40" left="-320"/>
             </padding>
-            <Label text = "Project Manager: Michele Zucco" styleClass="version-label2"/>
-            <Label text = "Nullafacente maggiore: Adami Emanuele" styleClass="version-label2"/>
-            <Label text = "Nullafacente sergente: Riccardo Zanetti" styleClass="version-label2"/>
-
+            <Label text="Project Manager: Michele Zucco" styleClass="version-label2"/>
+            <Label text="Nullafacente maggiore: Adami Emanuele" styleClass="version-label2"/>
+            <Label text="Nullafacente sergente: Riccardo Zanetti" styleClass="version-label2"/>
         </VBox>
     </right>
 
-    <!-- BARRA IN BASSO: versione + rotella impostazioni -->
+    <!-- SEZIONE IN BASSO -->
     <bottom>
         <HBox alignment="CENTER_RIGHT" spacing="26">
             <padding>
