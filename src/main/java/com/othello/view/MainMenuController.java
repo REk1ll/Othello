@@ -122,15 +122,95 @@ public class MainMenuController {
     }
 
     @FXML
-    private void NewGame(){
+    private void NewGame(ActionEvent event){
+        try {
+            Parent pagina = FXMLLoader.load(
+                    getClass().getResource(
+                            "/com/othello/view/NewGame.fxml"
+                    )
+            );
 
+            Stage finestra = (Stage) ((javafx.scene.Node) event.getSource())
+                    .getScene()
+                    .getWindow();
+
+            finestra.setScene(new Scene(pagina));
+            finestra.setTitle("New Game");
+            finestra.show();
+
+        } catch (IOException | NullPointerException e) {
+            e.printStackTrace();
+            System.err.println("Impossibile caricare NewGame.fxml");
+        }
     }
     @FXML
     private void LoadGame(){
 
     }
     @FXML
-    private void Skins(){
+    private void Skins(ActionEvent event){
+        try {
+            Parent pagina = FXMLLoader.load(
+                    getClass().getResource(
+                            "/com/othello/view/Skins.fxml"
+                    )
+            );
 
+            Stage finestra = (Stage) ((javafx.scene.Node) event.getSource())
+                    .getScene()
+                    .getWindow();
+
+            finestra.setScene(new Scene(pagina));
+            finestra.setTitle("Skins");
+            finestra.show();
+
+        } catch (IOException | NullPointerException e) {
+            e.printStackTrace();
+            System.err.println("Impossibile caricare Skins.fxml");
+        }
+    }
+    @FXML
+    private void NewGamePlayerVsPlayer(ActionEvent event){
+        try {
+            Parent pagina = FXMLLoader.load(
+                    getClass().getResource(
+                            "/com/othello/view/Game.fxml"
+                    )
+            );
+
+            Stage finestra = (Stage) ((javafx.scene.Node) event.getSource())
+                    .getScene()
+                    .getWindow();
+
+            finestra.setScene(new Scene(pagina));
+            finestra.setTitle("Game");
+            finestra.show();
+
+        } catch (IOException | NullPointerException e) {
+            e.printStackTrace();
+            System.err.println("Impossibile caricare Game.fxml");
+        }
+    }
+    @FXML
+    private void NewGamePlayerVsBot(ActionEvent event){
+        try {
+            Parent pagina = FXMLLoader.load(
+                    getClass().getResource(
+                            "/com/othello/view/Game.fxml"
+                    )
+            );
+
+            Stage finestra = (Stage) ((javafx.scene.Node) event.getSource())
+                    .getScene()
+                    .getWindow();
+
+            finestra.setScene(new Scene(pagina));
+            finestra.setTitle("Game");
+            finestra.show();
+
+        } catch (IOException | NullPointerException e) {
+            e.printStackTrace();
+            System.err.println("Impossibile caricare Game.fxml");
+        }
     }
 }
